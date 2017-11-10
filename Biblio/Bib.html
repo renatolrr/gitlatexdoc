@@ -1,0 +1,244 @@
+Bibliografía en LaTeX
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-7065222165140567456" itemprop="description articleBody">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div style="color: #0b5394; text-align: justify;">
+En la siguiente entrada mostraré algunos ejemplos sobre cómo utilizar la bibliografía con LaTeX. En primer lugar, supongamos que tenemos cuatro artículos a los que queremos hacer referencia en nuestro documento. Primero, tenemos que crear el archivo "biblio.bib" con las referencias. Existen programas específicos para hacer eso, como por ejemplo, JabRef, que es el que yo uso.</div>
+<div style="color: #0b5394; text-align: justify;">
+<br>
+Los artículos ejemplos son:</div>
+<br>
+@ARTICLE{Alfonso2010a,<br>
+author = {M. Alfonso and B. Bernardo and C. Carlos and D. Domingo},<br>
+title = {El problema de los gatos y los perros},<br>
+journal = {Mascotas},<br>
+year = {2010},<br>
+volume = {50},<br>
+pages = {112-115}<br>
+}<br>
+<br>
+@ARTICLE{Alfonso2010b,<br>
+author = {M. Alfonso <span style="color: red;">and </span>M. Marta <span style="color: red;">and </span>N. Nuria},<br>
+title = {Mi viaje a <span style="color: red;">{</span>EEUU<span style="color: red;">}</span>},<br>
+journal = {Revista de viajes},<br>
+year = {2010},<br>
+volume = {14},<br>
+pages = {50-56}<br>
+}<br>
+<br>
+@ARTICLE{Patricio2011,<br>
+author = {A. Patricio},<br>
+title = {Una estrella rosa en el fondo del mar},<br>
+journal = {El mar},<br>
+year = {2011},<br>
+volume = {3},<br>
+pages = {1071-1090}<br>
+}<br>
+<br>
+@ARTICLE{Zacarias2009,<br>
+author = {R. Zacarias and G. Graciela},<br>
+title = {¿<span style="color: red;">{</span>C<span style="color: red;">}</span>uál te gusta más?},<br>
+journal = {Flores},<br>
+year = {2009},<br>
+volume = {5},<br>
+pages = {45-49}<br>
+}<br>
+<div style="color: #0b5394; text-align: justify;">
+<div style="text-align: justify;">
+<br>
+Para indicar a LaTeX qué artículo queremos, caracterizamos cada uno con una etiqueta (en este caso: Alfonso2010a, Alfonso2010b, Patricio2011 y Zacarias2009). A mí me gusta poner el nombre del primer autor más el año. Si el autor publicó más de un artículo ese año, pongo una letra después del año.</div>
+<br>
+Además, es muy importante tener en cuenta lo siguiente:</div>
+<ul style="color: #0b5394; text-align: justify;">
+<li>Los autores hay que separarlos con "and".</li>
+<li>Si en el título hay siglas que tienen que estar siempre en mayúsculas (por ejemplo, EEUU), hay que escribir la palabra en cuestión entre llaves. (De no hacer esto, LaTeX lo escribiría en minúsculas.)</li>
+</ul>
+<div style="color: #0b5394; text-align: justify;">
+Existen muchos formatos posibles para escribir la bibliografía (cuya extensión es .bst). Algunos formatos .bst ya vienen por defecto en el compilador de LaTeX, pero si el que queremos usar no viniera, bastaría con descargarlo de internet y copiarlo en la misma carpeta donde tengamos el documento que estemos creando. En el siguiente link encontrarás muchos formatos posibles (<a href="http://ctan.org/tex-archive/biblio/bibtex/contrib/misc"><u>click aquí</u></a>).<br>
+<br>
+A continuación muestro los formatos que más me gustan a mí.</div>
+<br>
+<hr width="50%">
+<div style="text-align: justify;">
+<br></div>
+<div style="color: #0b5394; text-align: justify;">
+1) Artículos ordenados alfabéticamente y referencias con números.<br>
+<br>
+<div style="text-align: justify;">
+Para ello podemos usar el estilo "acm.bst". Nuestro archivo de LaTeX debería de ser algo similar a lo siguiente. Es importante cargar el paquete "cite" para que LaTeX compacte las referencias (es decir, que ponga [1-4] en vez de [1][2][3][4]). </div>
+</div>
+<br>
+\documentclass[a4paper,openright,12pt]{report}<br>
+\usepackage[spanish]{babel}<span style="font-size: 78%;"> </span><br>
+\usepackage[utf8]{inputenc}<span style="font-size: 78%;"> </span><br>
+<br>
+\usepackage<span style="color: black;">{<span style="color: red;">cite</span>}</span><span style="font-size: 78%;"> % para contraer referencias</span><br>
+<br>
+\begin{document}<br>
+<br>
+Puedes verlo en \cite{Patricio2011}. Te recomiendo leer \cite{Patricio2011, Zacarias2009, Alfonso2010b, Alfonso2010a}.<br>
+<br>
+\bibliographystyle<span style="color: black;">{<span style="color: red;">acm</span>}</span><br>
+<span style="color: black;">\bibliography{biblio}</span><br>
+\end{document}<br>
+<br>
+<div style="text-align: center;">
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-QE8b1yug6pY/UtZKUb_XXsI/AAAAAAAAIz0/djhUtQGPMCQ/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://4.bp.blogspot.com/-QE8b1yug6pY/UtZKUb_XXsI/AAAAAAAAIz0/djhUtQGPMCQ/s320/fig1.png" width="320" height="47" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-B9eFoknpXvo/UtZZfCtg-hI/AAAAAAAAI1U/JGO6pbovuhw/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://2.bp.blogspot.com/-B9eFoknpXvo/UtZZfCtg-hI/AAAAAAAAI1U/JGO6pbovuhw/s320/fig1.png" width="320" height="123" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br></div>
+</div>
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: justify;">
+<span style="color: #0b5394;">También podríamos haber usado el estilo "IEEEannot.bst". Es parecido al estilo anterior, pero este no pone los autores en mayúsculas. Este estilo no viene por defecto, así que lo tenemos que descargar (<a href="http://www.barik.net/sw/ieee/IEEEannot.bst"><u>click aquí</u></a>) y salvar en nuestra carpeta de trabajo (donde tenemos nuestro archivo .tex).</span></div>
+<div style="text-align: justify;">
+<br></div>
+\usepackage<span style="color: black;">{<span style="color: red;">cite</span>}</span><span style="font-size: 78%;"> % para contraer referencias</span><br>
+<br>
+\begin{document}<br>
+<br>
+Puedes verlo en \cite{Patricio2011}. Te recomiendo leer \cite{Patricio2011, Zacarias2009, Alfonso2010b, Alfonso2010a}.<br>
+<br>
+\bibliographystyle<span style="color: black;">{<span style="color: red;">IEEEannot</span>}</span><br>
+<span style="color: black;">\bibliography{biblio}</span><br>
+\end{document}<br>
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: center;">
+<a href="http://4.bp.blogspot.com/-QE8b1yug6pY/UtZKUb_XXsI/AAAAAAAAIz0/djhUtQGPMCQ/s1600/fig1.png" style="margin-left: 1em; margin-right: 1em;"><img src="http://4.bp.blogspot.com/-QE8b1yug6pY/UtZKUb_XXsI/AAAAAAAAIz0/djhUtQGPMCQ/s320/fig1.png" width="320" height="47" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-roZTAoi-7DE/UtZZsVkU8zI/AAAAAAAAI1c/2ZZElJ_dd7s/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://2.bp.blogspot.com/-roZTAoi-7DE/UtZZsVkU8zI/AAAAAAAAI1c/2ZZElJ_dd7s/s320/fig1.png" width="320" height="130" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br></div>
+<br>
+<br>
+<hr width="50%">
+<div style="text-align: justify;">
+<br></div>
+<div style="color: #333399; text-align: justify;">
+<div style="color: #0b5394;">
+2) Artículos ordenados por orden de aparición y referencias con números.</div>
+<div style="color: #0b5394;">
+<br></div>
+<div style="color: #0b5394;">
+En este caso, podemos utilizar el estilo de bibliografía "unsrt.bst", como sigue:</div>
+<br>
+<div style="color: black; text-align: left;">
+\usepackage{<span style="color: red;">cite</span>} <span style="font-size: x-small;">% para contraer referencias</span><br>
+<br>
+\begin{document}<br>
+<br>
+Puedes verlo en \cite{Patricio2011}. Te recomiendo leer \cite{Patricio2011, Zacarias2009, Alfonso2010b, Alfonso2010a}.<br>
+<br>
+\bibliographystyle{<span style="color: red;">unsrt</span>}<br>
+\bibliography{biblio}</div>
+<div style="color: black; text-align: left;">
+<br>
+\end{document}<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-WRMFJB4G_1o/Utz1Z7fHLcI/AAAAAAAAJGM/4ioJ52muJD8/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://4.bp.blogspot.com/-WRMFJB4G_1o/Utz1Z7fHLcI/AAAAAAAAJGM/4ioJ52muJD8/s1600/fig1.png" width="320" height="37" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-NHJ0O8wtOY0/UtZZ50BoTeI/AAAAAAAAI1k/xLj-uTCYXac/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://1.bp.blogspot.com/-NHJ0O8wtOY0/UtZZ50BoTeI/AAAAAAAAI1k/xLj-uTCYXac/s320/fig1.png" width="320" height="118" border="0"></a></div>
+<br>
+<div style="text-align: center;">
+</div>
+<div style="text-align: center;">
+<br>
+<hr width="50%">
+<div style="text-align: justify;">
+<br></div>
+<div style="text-align: justify;">
+<div style="color: #0b5394; text-align: justify;">
+3) Artículos ordenados por orden alfabético y referencias por nombre y año.<br>
+<br>
+En ese caso, podemos utilizar el estilo "jtbnew.bst". Este estilo no viene por defecto, así que lo tenemos que descargar (<a href="http://mirror.switch.ch/ftp/mirror/tex/biblio/bibtex/contrib/misc/jtbnew.bst"><u>click aquí</u></a>) y salvar en nuestra carpeta de trabajo. Para contraer correctamente las referencias (y que las escriba más bonitas), en vez de cargar el paquete "cite", hay que cargar el paquete natbib. </div>
+<br>
+<div style="text-align: left;">
+\usepackage<span style="color: red;">[sort&amp;compress]{natbib}</span> <span style="font-size: 78%;">% para contraer referencias de texto</span><br>
+<br>
+\begin{document}<br>
+<br>
+Puedes verlo en \cite{Patricio2011}. Te recomiendo leer \cite{Patricio2011, Zacarias2009, Alfonso2010b, Alfonso2010a}.<br>
+<br>
+\bibliographystyle{<span style="color: red;">jtbnew</span>}<br>
+\bibliography{biblio}<br>
+<br>
+\end{document}</div>
+<div style="text-align: left;">
+<br>
+<div style="text-align: center;">
+</div>
+<div style="text-align: center;">
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://1.bp.blogspot.com/-XolOJ0ax0xI/UtZPI_ZlMxI/AAAAAAAAI0Y/_rmVqTmaEAU/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://1.bp.blogspot.com/-XolOJ0ax0xI/UtZPI_ZlMxI/AAAAAAAAI0Y/_rmVqTmaEAU/s320/fig1.png" width="320" height="45" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-jOe-HTGChDo/UtZaI8IUckI/AAAAAAAAI1s/wUh-Q5PduEc/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://2.bp.blogspot.com/-jOe-HTGChDo/UtZaI8IUckI/AAAAAAAAI1s/wUh-Q5PduEc/s320/fig1.png" width="320" height="123" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br></div>
+<br>
+<div style="text-align: justify;">
+<span style="color: #0b5394;">En el caso de referencias con nombre y año, creo que es mejor hacer las llamadas a cada referencia por separado (excepto cuando dos o más son del mismo autor). Es decir</span><br>
+<br></div>
+<div style="text-align: justify;">
+</div>
+<div style="text-align: justify;">
+<span style="color: #0b5394;"><span style="color: black;">Puedes verlo en \cite{Patricio2011}. Te recomiendo leer 
+<span style="color: red;">\cite</span>{Zacarias2009}, <span style="color: red;">\cite</span>{Alfonso2010b, Alfonso2010a} y 
+<span style="color: red;">\cite</span>{Patricio2011}.</span> </span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-Fff10GrFOUw/UtZXJc_d_tI/AAAAAAAAI08/y36Gj26YtUE/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://3.bp.blogspot.com/-Fff10GrFOUw/UtZXJc_d_tI/AAAAAAAAI08/y36Gj26YtUE/s320/fig1.png" width="320" height="36" border="0"></a></div>
+<br>
+<div style="color: #0b5394; text-align: justify;">
+Otra posibilidad es utilizar el paquete "apalike.bst". También es necesario descargarlo (<a href="http://gregorywheeler.org/latex/apalike.bst"><u>click aquí</u></a>) y salvarlo en nuestra carpeta de trabajo.<br>
+<br>
+<div style="text-align: left;">
+<span style="color: black;">\usepackage<span style="color: red;">[sort&amp;compress]{natbib}</span> <span style="font-size: x-small;">% para contraer referencias de texto</span><br><br>\begin{document}</span><span style="color: black;"><span style="color: #0b5394;"><span style="color: black;">Puedes verlo en \cite{Patricio2011}. Te recomiendo leer 
+\cite{Zacarias2009}, \cite{Alfonso2010b, Alfonso2010a} y 
+\cite{Patricio2011}.</span></span><br>&nbsp;</span><br>
+<span style="color: black;">\bibliographystyle{<span style="color: red;">apalike</span>}<br>\bibliography{biblio}<br><br>\end{document}</span></div>
+<div style="text-align: left;">
+<br></div>
+<div class="separator" style="clear: both; text-align: center;">
+<br></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-aYU4OA9PVWI/UtZYFA4yueI/AAAAAAAAI1E/HeCeFOwLX5Y/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://3.bp.blogspot.com/-aYU4OA9PVWI/UtZYFA4yueI/AAAAAAAAI1E/HeCeFOwLX5Y/s320/fig1.png" width="320" height="39" border="0"></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/-4fqzeQltgCE/UtZaZxYc2MI/AAAAAAAAI10/Nk0pTq77pXA/s1600/fig1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://2.bp.blogspot.com/-4fqzeQltgCE/UtZaZxYc2MI/AAAAAAAAI10/Nk0pTq77pXA/s320/fig1.png" width="320" height="114" border="0"></a></div>
+<br>
+<hr width="50%">
+<div style="text-align: justify;">
+<br>
+Algunos últimos comentarios:<br>
+<br></div>
+Cuando un artículo posee más de dos autores, LaTeX lo contrae utilizando la locución latina "et al." (et alii = "y otros"), mientras que si un artículo tiene exactamente dos autores, los separa por "&amp;" o "and" (dependiendo del formato). Pero si estamos escribiendo en español, esto queda bastante mal. Dos autores deberían ir separdos por "y". En otra entrada, explico cómo solucionar este problema (<a href="http://minisconlatex.blogspot.fr/2013/01/como-poner-y-en-vez-de-and-en-la.html">click aquí</a>).<br>
+<br>
+Otro posible fallo ocurre cuando los apellidos de los autores, tienen acentos, diéresis, eñes, o algún otro símbolo no estándar. En nuestro texto, podemos escribirlos sin ningún problema, pero a veces falla si ese símbolo aparece en la bibliografía. Esto se debe a que hay varios métodos de codificación (latin1, utf8, cp1252...). Si nuestro documetno de LaTeX usa uno, y JabRef otro distinto, no va a funcionar. Si ocurre este problema, en la bibliografía, es mejor poner estos símbolos con código:<br>
+<br>
+<span style="color: #0b5394;"><span style="color: black;">\'a \'e \'i \'o \'u \"u<br>\'A \'E \'I \'O \'U \"U<br>\~n \~N<br>?` ?&nbsp; !` !</span></span><br>
+<br>
+Hay veces que queremos que nos aparezca en la lista&nbsp;bibliográfica una cierta referencia, pero sin que la hayamos citado en ningún momento en el texto. Esto lo podemos hacer con el comando "\nocite{}".<br>
+<br>
+Otras veces lo que queremos es añadir una pequeña lista de referencias, independiente de la lista final de bibliografía. Por ejemplo, una lista con los artículos que nosotros hayamos escrito. Tengo otra entrada donde explico cómo hacerlo (<a href="http://minisconlatex.blogspot.fr/2012/05/lista-articulos-inicio-tesis.html">click aquí</a>).<br>
+<br>
+Por último, hay veces que queremos añadir algún comentario extra en alguna de las referencias. Esto lo podemos indicar con \note={"texto que queramos"}. Por ejemplo:<br>
+<br>
+<span style="color: #0b5394;"><span style="color: black;">@ARTICLE{Zacarias2009,<br>author = {R. Zacarias and G. Graciela},<br>title = {¿{C}uál te gusta más?},<br>journal = {Flores},<br>year = {2009},<br>volume = {5},<br>pages = {45-49},<br><span style="color: red;">note = {Premio 2009}</span><br>}</span></span><br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-XXZ7d22aQCw/VjS3yLhqXmI/AAAAAAAALTA/khtVBCGiET0/s1600/imagen.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img src="http://3.bp.blogspot.com/-XXZ7d22aQCw/VjS3yLhqXmI/AAAAAAAALTA/khtVBCGiET0/s320/imagen.png" width="320" height="35" border="0">
